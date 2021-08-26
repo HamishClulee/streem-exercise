@@ -6,35 +6,28 @@
         target="_blank"
       >{{ json.title }}</a>
     </h4>
-    <details
-      open
-      class="text-sm util-500 mb-2"
-    >
-      <summary>Published by {{ json.author.name }}</summary>
-      <summary class="ml-8">
-        Word count: {{ json.word_count }}
-      </summary>
-      <summary class="ml-8">
-        Published at: {{ new Date(json.created_at) }}
-      </summary>
-      <summary class="ml-8">
-        Published by: {{ json.source.name }} <img :src="json.source.logo_url">
-      </summary>
-    </details>
+
+    <ArticleDetails
+      :author="json.author"
+      :created-at="new Date(json.created_at)"
+      :source="json.source"
+      :word-count="json.word_count"
+    />
+
     <h4 class="text-lg my-4 text-streem-dark-blue border-b border-streem-dark-blue w-full">
       Excerpts
     </h4>
     <!-- eslint-disable vue/no-v-html -->
     <!-- DOMPurify in usage -->
     <div
-      v-for="(excert, index) in json.excerpts"
+      v-for="(excerpt, index) in json.excerpts"
       :key="index"
       class="my-4"
     >
       <span>
         <h5>
           Keywords: <em
-            v-for="keyword in excert.keywords"
+            v-for="keyword in excerpt.keywords"
             :key="keyword"
             class="mr-2"
           >{{ keyword }}</em>
@@ -42,7 +35,7 @@
       </span>
       <button
         class="mb-2 text-left"
-        v-html="santise(excert.text)"
+        v-html="santise(excerpt.text)"
       />
       <!--eslint-enable-->
     </div>
@@ -50,9 +43,13 @@
 </template>
 <script>
 import DOMPurify from 'dompurify'
+import ArticleDetails from './ArticleDetails.vue'
 
 export default {
   name: 'Article',
+  components: {
+    ArticleDetails,
+  },
   props: {
     json: {
       type: Object,
