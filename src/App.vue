@@ -1,28 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <main class="app-main">
+    <transition
+      name="fade"
+      mode="out-in"
+    >
+      <div
+        v-show="showGlobalSpinner"
+        class="global-spinner-con"
+      >
+        <LoadingSpinner />
+      </div>
+    </transition>
+    <Navbar />
+  </main>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Navbar from './components/nav/Navbar'
+import LoadingSpinner from './components/loaders/LoadingSpinner'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Navbar,
+    LoadingSpinner,
+  },
+  data() {
+    return {
+      showGlobalSpinner: true,
+    }
+  },
+  methods: {},
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
