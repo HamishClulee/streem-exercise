@@ -1,9 +1,11 @@
 <template>
-  <div id="square5">
-    <span />
-    <span />
-    <span />
-    <span />
+  <div class="w-full flex items-center justify-center">
+    <div id="square5">
+      <span />
+      <span />
+      <span />
+      <span />
+    </div>
   </div>
 </template>
 
@@ -16,12 +18,6 @@ export default {
 <style scoped>
 #square5 {
   display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 50px;
-  width: 50px;
-  margin: -25px 0 0 -25px;
 }
 
 #square5 span {
@@ -48,14 +44,14 @@ export default {
   left: 22px;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
-  background: white;
+  background: #131e5e;
 }
 
 #square5 span:nth-child(3) {
   left: 33px;
   -webkit-animation-delay: 0.2s;
   animation-delay: 0.2s;
-  background: white;
+  background: #131e5e;
 }
 
 #square5 span:nth-child(4) {
