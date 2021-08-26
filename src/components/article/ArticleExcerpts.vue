@@ -7,6 +7,7 @@
     <!-- DOMPurify in usage -->
     <div
       v-for="(excerpt, index) in excerpts"
+      v-show="index === 0 || showAll"
       :key="index"
       class="my-4"
     >
@@ -24,6 +25,18 @@
         v-html="santise(excerpt.text)"
       />
       <!--eslint-enable-->
+
+      <div
+        v-if="!showAll && excerpts.length > 1"
+        class="w-full flex items-center"
+      >
+        <button
+          class="inline-flex mx-auto items-center text-sm px-32 py-2 rounded-lg justify-center border font-medium shadow-sm focus:outline-none bg-streem-light-blue text-white"
+          @click="showAll = true"
+        >
+          Show All Excerpts
+        </button>
+      </div>
     </div>
   </section>
 </template>
@@ -37,6 +50,11 @@ export default {
       default: null,
       required: true,
     },
+  },
+  data() {
+    return {
+      showAll: false,
+    }
   },
   methods: {
     santise(html) {

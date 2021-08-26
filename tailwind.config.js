@@ -5,6 +5,7 @@ module.exports = {
     colors: {
       'streem-pink': '#FF7675',
       'streem-dark-blue': '#131E5E',
+      'streem-light-blue': '#2F54EB',
       white: '#fff',
       'util-500': '#7A7A7A'
     }
