@@ -10,4 +10,8 @@ export default class Api {
       baseURL: this.API_URL
     })
   }
+
+  getArticles(page, pageSize) {
+    return this.axios.get(`?page=${page}&pageSize=${pageSize}`)
+  }
 }

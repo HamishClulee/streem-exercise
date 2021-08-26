@@ -48,14 +48,14 @@ export default {
   left: 22px;
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
-  background: #131e5e;
+  background: white;
 }
 
 #square5 span:nth-child(3) {
   left: 33px;
   -webkit-animation-delay: 0.2s;
   animation-delay: 0.2s;
-  background: #131e5e;
+  background: white;
 }
 
 #square5 span:nth-child(4) {

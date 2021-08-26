@@ -1,17 +1,15 @@
 <template>
-  <main class="app-main">
-    <transition
-      name="fade"
-      mode="out-in"
-    >
-      <div
-        v-show="showGlobalSpinner"
-        class="global-spinner-con"
-      >
-        <LoadingSpinner />
-      </div>
-    </transition>
+  <main class="bg-streem-dark-blue min-h-screen flex flex-col items-center">
     <Navbar />
+    <div
+      v-show="showGlobalSpinner"
+      class="global-spinner-con"
+    >
+      <LoadingSpinner />
+    </div>
+    <section class="w-2/3 bg-white rounded-lg border border-grey-500 mt-8 p-4">
+      {{ json }}
+    </section>
   </main>
 </template>
 
@@ -27,8 +25,16 @@ export default {
   },
   data() {
     return {
-      showGlobalSpinner: true,
+      showGlobalSpinner: false,
+      json: '',
     }
+  },
+  created() {
+    this.showGlobalSpinner = true
+    this.$api.getArticles(1, 20).then((res) => {
+      this.json = res.data
+      this.showGlobalSpinner = false
+    })
   },
   methods: {},
 }
