@@ -3,11 +3,9 @@
     <Navbar />
 
     <section class="w-3/4 bg-white rounded-lg border border-grey-500 my-8 p-4 min-h-8">
-      <LoadingSpinner v-if="isLoading" />
-      <Article
-        v-for="(article, index) in json"
+      <ArticlePage
+        v-for="(empty, index) in Array(999)"
         :key="index"
-        :json="article"
       />
     </section>
   </main>
@@ -15,29 +13,23 @@
 
 <script>
 import Navbar from './components/nav/Navbar'
-import LoadingSpinner from './components/loaders/LoadingSpinner'
-import Article from './components/article/Article.vue'
+import ArticlePage from './components/article/ArticlePage.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    LoadingSpinner,
-    Article,
+    ArticlePage,
   },
   data() {
     return {
-      isLoading: false,
-      json: '',
+      loadPushed: false,
     }
   },
-  created() {
-    this.isLoading = true
-    this.$api.getArticles(1, 20).then((res) => {
-      this.json = res.data
-      this.isLoading = false
-    })
+  mounted() {
+    setTimeout(() => {
+      this.loadPushed = true
+    }, 3000)
   },
-  methods: {},
 }
 </script>

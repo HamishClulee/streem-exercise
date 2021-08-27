@@ -20,8 +20,8 @@
           >{{ keyword }}</em>
         </h5>
       </span>
-      <button
-        class="mb-2 text-left"
+      <div
+        class="mb-2 text-left cursor-text"
         v-html="santise(excerpt.text)"
       />
       <!--eslint-enable-->
@@ -31,7 +31,7 @@
         class="w-full flex items-center"
       >
         <button
-          class="inline-flex mx-auto items-center text-sm px-32 py-2 rounded-lg justify-center border font-medium shadow-sm focus:outline-none bg-streem-light-blue text-white"
+          class="cursor-pointer inline-flex mx-auto items-center text-sm px-32 py-2 rounded-lg justify-center border font-medium shadow-sm focus:outline-none bg-streem-light-blue text-white"
           @click="showAll = true"
         >
           Show All Excerpts
