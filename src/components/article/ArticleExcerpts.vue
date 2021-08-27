@@ -3,8 +3,6 @@
     <h4 class="text-lg my-4 text-streem-dark-blue border-b border-streem-dark-blue w-full">
       Excerpts
     </h4>
-    <!-- eslint-disable vue/no-v-html -->
-    <!-- DOMPurify in usage -->
     <div
       v-for="(excerpt, index) in excerpts"
       v-show="index === 0 || showAll"
@@ -20,6 +18,8 @@
           >{{ keyword }}</em>
         </h5>
       </span>
+      <!-- eslint-disable vue/no-v-html -->
+      <!-- DOMPurify in usage -->
       <div
         class="mb-2 text-left cursor-text"
         v-html="santise(excerpt.text)"

@@ -4,8 +4,9 @@
 
     <section class="w-3/4 bg-white rounded-lg border border-grey-500 my-8 p-4 min-h-8">
       <ArticlePage
-        v-for="(empty, index) in Array(999)"
+        v-for="(empty, index) in Array(currentPage)"
         :key="index"
+        :current-page="currentPage"
       />
     </section>
   </main>
@@ -24,12 +25,13 @@ export default {
   data() {
     return {
       loadPushed: false,
+      currentPage: 1,
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.loadPushed = true
-    }, 3000)
+    this.$on('increment-page-number', () => {
+      this.currentPage++
+    })
   },
 }
 </script>

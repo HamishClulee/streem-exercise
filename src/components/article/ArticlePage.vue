@@ -19,6 +19,13 @@ export default {
     LoadingSpinner,
     Article,
   },
+  props: {
+    currentPage: {
+      type: Number,
+      required: true,
+      default: 1,
+    },
+  },
   data() {
     return {
       isLoading: true,
@@ -30,19 +37,17 @@ export default {
     this.observer = new IntersectionObserver(([entry]) => {
       if (entry && entry.isIntersecting) {
         this.$api
-          .getNextPageOfArticles()
+          .getNextPageOfArticles(this.currentPage)
           .then((res) => {
             this.json = res.data
             this.isLoading = false
-            this.$api.incrementPageNumber()
+            this.$parent.$emit('increment-page-number')
           })
           .catch((err) => {
             console.log(err)
-            debugger
           })
       }
     })
-
     this.observer.observe(this.$el)
   },
 }

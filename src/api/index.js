@@ -4,8 +4,7 @@ export default class Api {
   API_URL =
     'https://frontend-engineering-test-api.netlify.app/.netlify/functions/articles'
   axios
-  currentPage = 1
-  numArticlesPerPage = 20
+  numArticlesPerPage = 10
 
   constructor() {
     this.axios = axios.create({
@@ -17,9 +16,13 @@ export default class Api {
     this.currentPage++
   }
 
-  getNextPageOfArticles() {
+  getCurrentPageNumber() {
+    return this.currentPage
+  }
+
+  getNextPageOfArticles(currentPage) {
     return this.axios.get(
-      `?page=${this.currentPage}&pageSize=${this.numArticlesPerPage}`
+      `?page=${currentPage}&pageSize=${this.numArticlesPerPage}`
     )
   }
 }
