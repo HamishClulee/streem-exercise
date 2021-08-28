@@ -78,9 +78,8 @@ export default {
             this.endOfFeedMessage = 'No more articles to display'
           }
         })
-        .catch((err) => {
+        .catch(() => {
           // @TODO handle api errors
-          console.log(err)
         })
     },
   },
