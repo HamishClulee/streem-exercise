@@ -63,7 +63,6 @@ export default {
   },
   mounted() {
     this.checkSrc()
-    console.log(this.safeSrc)
   },
   methods: {
     checkSrc() {

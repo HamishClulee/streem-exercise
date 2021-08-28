@@ -44,20 +44,22 @@ export default {
       this.requestNewPage()
     } else {
       this.observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const currentY = entry.boundingClientRect.y
-          const currentRatio = entry.intersectionRatio
-          const isIntersecting = entry.isIntersecting
-
-          if (currentY < this.previousY) {
-            if (currentRatio > this.previousRatio && isIntersecting) {
+        entries.forEach(
+          ({ isIntersecting, boundingClientRect, intersectionRatio }) => {
+            // This equates to: if scrolling down, and hasn't already intersected
+            // Means it won't fire when scrolling up, or scrolling back down
+            if (
+              boundingClientRect.y < this.previousY &&
+              intersectionRatio > this.previousRatio &&
+              isIntersecting
+            ) {
               this.requestNewPage()
             }
-          }
 
-          this.previousY = currentY
-          this.previousRatio = currentRatio
-        })
+            this.previousY = boundingClientRect.y
+            this.previousRatio = intersectionRatio
+          }
+        )
       })
       this.observer.observe(this.$el)
     }
@@ -66,10 +68,9 @@ export default {
     requestNewPage() {
       this.$api
         .getNextPageOfArticles(this.currentPage)
-        .then((res) => {
-          console.log(res.data.length)
-          if (res.data.length !== 0) {
-            this.json = res.data
+        .then(({ data }) => {
+          if (data?.length) {
+            this.json = data
             this.isLoading = false
             this.$parent.$emit('increment-page-number')
           } else {
@@ -78,6 +79,7 @@ export default {
           }
         })
         .catch((err) => {
+          // @TODO handle api errors
           console.log(err)
         })
     },
