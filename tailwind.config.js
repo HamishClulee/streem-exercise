@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         body: ['"Open Sans"', 'sans-serif']
       },
+      minHeight: {
+        'article-page': '8rem'
+      },
       colors: {
         'streem-pink': '#FF7675',
         'streem-dark-blue': '#131E5E',

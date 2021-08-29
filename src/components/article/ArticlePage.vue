@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-32 flex flex-col items-center justify-center">
+  <section class="min-h-article-page flex flex-col items-center justify-center">
     <LoadingSpinner v-if="isLoading" />
     <h3 v-else-if="endOfFeedMessage !== ''">
       {{ endOfFeedMessage }}
