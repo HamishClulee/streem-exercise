@@ -18,8 +18,8 @@
   </article>
 </template>
 <script>
-import ArticleDetails from './ArticleDetails.vue'
-import ArticleExcerpts from './ArticleExcerpts.vue'
+import ArticleDetails from '@/components//article/ArticleDetails.vue'
+import ArticleExcerpts from '@/components//article/ArticleExcerpts.vue'
 
 export default {
   name: 'Article',

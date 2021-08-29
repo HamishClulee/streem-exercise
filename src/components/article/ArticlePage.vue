@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import LoadingSpinner from '../loaders/LoadingSpinner'
-import Article from './Article.vue'
+import LoadingSpinner from '@/components/loaders/LoadingSpinner'
+import Article from '@/components/article/Article.vue'
 export default {
   name: 'ArticlePage',
   components: {

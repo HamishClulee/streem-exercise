@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import Navbar from './components/nav/Navbar'
-import ArticlePage from './components/article/ArticlePage.vue'
+import Navbar from '@/components/nav/Navbar'
+import ArticlePage from '@/components/article/ArticlePage.vue'
 
 export default {
   name: 'App',
