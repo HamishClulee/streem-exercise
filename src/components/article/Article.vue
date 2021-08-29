@@ -1,5 +1,5 @@
 <template>
-  <article class="w-full bg-white p-2 flex flex-col border mb-4 rounded-lg border-util-500">
+  <article class="w-full bg-white p-2 flex flex-col border mb-4 shadow-md rounded-lg border-util-500">
     <h4 class="text-xl mt-2 mb-1 text-streem-dark-blue">
       <a
         :href="json.url"

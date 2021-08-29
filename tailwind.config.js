@@ -1,13 +1,18 @@
 module.exports = {
-  purge: [],
+  purge: ['./index.html', './src/**/*.vue', './src/*.vue'],
   darkMode: false,
   theme: {
-    colors: {
-      'streem-pink': '#FF7675',
-      'streem-dark-blue': '#131E5E',
-      'streem-light-blue': '#2F54EB',
-      white: '#fff',
-      'util-500': '#7A7A7A'
+    extend: {
+      fontFamily: {
+        body: ['"Open Sans"', 'sans-serif']
+      },
+      colors: {
+        'streem-pink': '#FF7675',
+        'streem-dark-blue': '#131E5E',
+        'streem-light-blue': '#2F54EB',
+        white: '#fff',
+        'util-500': '#BFBFBF'
+      }
     }
   },
   variants: {

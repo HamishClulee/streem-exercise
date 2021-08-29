@@ -1,9 +1,7 @@
+// postcss.config.js
+const autoprefixer = require('autoprefixer')
+const tailwindcss = require('tailwindcss')
+
 module.exports = {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {}
-  },
-  purge: {
-    content: ['./public/**/*.html', './src/**/*.vue']
-  }
+  plugins: [tailwindcss, autoprefixer]
 }

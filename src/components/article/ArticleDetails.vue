@@ -2,7 +2,7 @@
   <section class="flex flex-row items-center justify-between">
     <details
       open
-      class="text-sm util-500 mb-2"
+      class="text-sm util-border mb-2"
     >
       <summary>Published by {{ source.name }}</summary>
       <summary class="ml-8">
@@ -23,7 +23,7 @@
       class="mr-8 ml-4"
     >
       <img
-        class="w-32"
+        class="w-24"
         :src="safeSrc"
       >
     </div>
